@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Développeur Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="backgroundzoom.js"></script>
+    <script src="https://kit.fontawesome.com/6f5c88a32e.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="LogoSansFond.png" alt="Logo" />
+        <!-- <div id="menuPicto">
+            <span class="menuBar menuBarTop"></span>
+            <span class="menuBar menuBarMid"></span>
+            <span class="menuBar menuBarBtm"></span>
+        </div> --> 
+    </header>
+
+    <div class="background-container" id="background-container">
+        <img src="Fond.png" alt="Fond" id="background-img">
+    </div>
+
+    <div class="index-container" id="index-container">
+        <h1 class="job"> Création de sites internet </h1>
+        <h2 class="skills"> Intégration, Développement, Gestion de projet </h2>
+        <button id="txtbutton" class="txtbutton"> En savoir plus </button>
+    </div>
+
+    <div class="quisuije-container hide-content" id="quisuije-container">
+        <a class="back-to-index"><i class="fas fa-arrow-left"></i></a>
+        <h2 class="quisuije__titre">Qui suis je ?</h2>
+        <p class="presentation">Après une formation d'Ingénieur en génie Industriel et plusieurs années d'expérience, j'ai développé mes compétences informatiques en passant un BTS d'intégration WEB.</p>
+        <button id="projectsbutton" class="projectsbutton"> Mes Projets </button>
+    </div>
+
+    <div class="projects-container hide-content" id="projects-container">
+        <div class="projects-container-flexbox">
+            <a class="back-to-quisuije"><i class="fas fa-arrow-left"></i></a>
+            <h2 class="quisuije__titre">Projets réalisés</h2>
+            <div class="projects-flexbox">
+            <div class="projects-flexbox__element">
+                <a href=https://aimmotion.beekom.fr><img src="Aimmotion.png" alt="Aimmotion site web" class="projects__picture"></a>
+                <h3 class="projects-titles"> Création du site WEB Aimmotion </h3>
+                <p class="presentation"> Design, Gestion de projet, Intégration </p>
+            </div>
+            <div class="projects-flexbox__element">
+                <a href="https://github.com/ThomasRenaudin"><img src="Projets Etudiants.png" alt="Git hub openclassroom" class="projects__picture"></a>
+                <h3 class="projects-titles"> Projets étudiants</h3>
+                <p class="presentation"> Maîtrise HTML, CSS, JS, React, PHP </p>
+            </div>
+            </div>
+            <button id="contactbutton" class="contactbutton"> Me contacter </button>
+        </div>
+    </div>
+
+    <div class="contact-container hide-content" id="contact-container">
+        <a class="back-to-projects"><i class="fas fa-arrow-left"></i></a>
+        <h2 class="contact__titre">Coordonnées</h2>
+        <p class="contact__numero">06 24 40 65 69</p>
+        <p class="contact__mail">thomas.renaudin79000@gmail.com</p>
+        
+    </div>
+
+    <script>
+        document.getElementById("txtbutton").addEventListener("click", function() {
+            var indexContainer = document.getElementById("index-container");
+            indexContainer.classList.add("hide-content");
+            indexContainer.classList.remove("show-content");
+            var quisuijeContainer = document.getElementById("quisuije-container");
+            quisuijeContainer.classList.remove("hide-content");
+            quisuijeContainer.classList.add("show-content");
+
+            var backToIndexButton = document.querySelector(".back-to-index");
+            backToIndexButton.addEventListener("click", function() {
+                quisuijeContainer.classList.add("hide-content");
+                quisuijeContainer.classList.remove("show-content");
+                indexContainer.classList.remove("hide-content");
+                indexContainer.classList.add("show-content");
+            });
+            
+            var projectsButton = document.getElementById("projectsbutton");
+            projectsButton.addEventListener("click", function() {
+                var projectsContainer = document.getElementById("projects-container");
+                projectsContainer.classList.remove("hide-content");
+                projectsContainer.classList.add("show-content");
+                quisuijeContainer.classList.add("hide-content");
+                quisuijeContainer.classList.remove("show-content")
+            });
+        });
+        
+        var backToQuisuijeButton = document.querySelector(".back-to-quisuije");
+        backToQuisuijeButton.addEventListener("click", function() {
+            var projectsContainer = document.getElementById("projects-container");
+            projectsContainer.classList.add("hide-content");
+            projectsContainer.classList.remove("show-content");
+            var quisuijeContainer = document.getElementById("quisuije-container");
+            quisuijeContainer.classList.remove("hide-content");
+            quisuijeContainer.classList.add("show-content");
+        });
+
+        var contactButton = document.getElementById("contactbutton");
+            contactButton.addEventListener("click", function() {
+                var contactContainer = document.getElementById("contact-container");
+                var projectsContainer = document.getElementById("projects-container");
+                contactContainer.classList.remove("hide-content");
+                contactContainer.classList.add("show-content");
+                projectsContainer.classList.add("hide-content");
+                projectsContainer.classList.remove("show-content")
+            });
+
+
+            var backToProjectsButton = document.querySelector(".back-to-projects");
+        backToProjectsButton.addEventListener("click", function() {
+            var projectsContainer = document.getElementById("projects-container");
+            projectsContainer.classList.add("show-content");
+            projectsContainer.classList.remove("hide-content");
+            var contactContainer = document.getElementById("contact-container");
+            contactContainer.classList.remove("show-content");
+            contactContainer.classList.add("hide-content");
+        });
+    </script>
+</body>
+
+</html>
